@@ -2,19 +2,22 @@
 <html lang="ja">
 <head>
 <meta charset="utf8">
-<title>卒業研究</title>
-<link rel="stylesheet" href="style.css">
+<html>
+<head>
+	<title>練習問題</title>
 </head>
 <body>
-<h1>ブエミオレストラン</h1>
-<p>肉！肉！肉！フェア開催中！</P>
-<div>
-	<form action="" method="post">
-		<span>名 前</span><input type="text" name="name"value=""><br />
-		<span>メールアドレス</span><input type="text" name="mail"value=""><br />
-		<span>人 数</span><input type="text" name="num"value=""><br />
-		<input type="submit" class="btn"value="予約"><br />
-	</form>
-</div>
+<?php
+	try{
+	$pdo = new PDO("mysql:host=localhost; dbname="sotsuken", "root", "12345");
+	$res = $pdo->prepare("insert into sotsuken(No,Username,Email,Count)
+	values(:No,:Username,:Email,:Ninzuu)");
+	$res->bindValue(":No",$_POST['No']);
+	$res->bindValue(":Username",$_POST['Username']);
+	$res->bindValue(":Email",$_POST['Email']);
+	$res->bindValue(":Ninzuu",$_POST['Ninzuu']);
+	$res->execute();
+?>
 </body>
 </html>
+
