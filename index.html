@@ -1,23 +1,18 @@
 <!DOCTYPE HTML>
 <html lang="ja">
 <head>
-<meta charset="utf8">
-<html>
-<head>
-	<title>練習問題</title>
+	<meta charset="utf8">
+	<title>卒業研究・予約システム</title>
 </head>
 <body>
-<?php
-	try{
-	$pdo = new PDO("mysql:host=localhost; dbname="sotsuken", "root", "12345");
-	$res = $pdo->prepare("insert into sotsuken(No,Username,Email,Count)
-	values(:No,:Username,:Email,:Ninzuu)");
-	$res->bindValue(":No",$_POST['No']);
-	$res->bindValue(":Username",$_POST['Username']);
-	$res->bindValue(":Email",$_POST['Email']);
-	$res->bindValue(":Ninzuu",$_POST['Ninzuu']);
-	$res->execute();
-?>
+<h1>データ追加</h1>
+<h3>データを入力してください！！：</h3>
+<form action="insert.php"method="POST">
+No:<input type="text"name="No"><br>
+Username:<input type="text"name="Username"><br>
+Email:<input type="text"name="Email"><br>
+Ninzuu:<input type="text" name="Ninzuu"><br><br>
+	<input type="submit" value="送　信"><br>
 </body>
 </html>
 
