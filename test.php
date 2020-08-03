@@ -10,7 +10,7 @@
 <?php
 	try{
 	$pdo = new PDO("mysql:host=localhost; dbname="sotsuken", "root", "12345");
-	$res = $pdo->prepare("insert into sotsuken(No,Username,Email,Count)
+	$res = $pdo->prepare("insert into sotsuken(No,Username,Email,Ninzuu)
 	values(:No,:Username,:Email,:Ninzuu)");
 	$res->bindValue(":No",$_POST['No']);
 	$res->bindValue(":Username",$_POST['Username']);
